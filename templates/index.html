@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h1>Aula 4 de Flask</h1>
+
+    <p>
+        Seja bem-vindo! Neste projeto, nosso site é estruturado em torno das seguintes páginas principais: 
+        <strong>Home</strong>, <strong>Sobre Mim</strong>, <strong>Sobre Aulas</strong> e <strong>Sobre Ser Estudante de TI</strong>.
+    </p>
+
+    <p>
+        Nesta Aula 4, estamos desenvolvendo um menu de navegação dinâmico para conectar todas as páginas do nosso sistema Flask. O objetivo é aplicar os conceitos de rotas e templates que já aprendemos, criando uma barra de links que permite ao usuário navegar facilmente entre os conteúdos.
+    </p>
+    
+    <p>
+        Para fazer isso, estamos centralizando a estrutura visual do menu dentro do arquivo <code>layout.html</code>. Dessa forma, usamos o conceito de herança de templates para que todas as páginas herdem esse mesmo menu automaticamente, evitando a repetição de código HTML e facilitando a manutenção do site.
+    </p>
+    
+
+{% endblock %}
