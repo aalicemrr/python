@@ -1,22 +1,15 @@
 from flask import Flask, render_template
+from calculadora import calcular
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('calculadora.html', etapas = '', resultados = '')
 
-@app.route('/page1')
-def page1():
-    return render_template('sobremim.html')
+@app.route('/calcular', methods=['POST'])
+def calcular_route():
+    return calcular()
 
-@app.route('/page2')
-def page2():
-    return render_template('sobreaulas.html')
-
-@app.route('/page3')
-def page3():
-    return render_template('sobreti.html')
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
