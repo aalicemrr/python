@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Produto</title>
+</head>
+<body>
+
+{% if produto %}
+<h1>Editar Produto</h1>
+{% else %}
+<h1>Cadastrar Produto</h1>
+{% endif %}
+
+{% if erro %}
+<p style="color:red;">
+{{ erro }}
+</p>
+{% endif %}
+
+<form
+method="post"
+action="{% if produto %}{{ url_for('editar', produto_id=produto.id) }}{% else %}{{ url_for('cadastrar') }}{% endif %}"
+>
+
+<label>Nome:</label><br>
+<input
+type="text"
+name="nome"
+value="{{ produto.nome if produto else request.form.get('nome', '') }}"
+>
+<br><br>
+
+<label>Categoria:</label><br>
+<input
+type="text"
+name="categoria"
+value="{{ produto.categoria if produto else request.form.get('categoria', '') }}"
+>
+<br><br>
+
+<label>Preço:</label><br>
+<input
+type="number"
+step="0.01"
+name="preco"
+value="{{ produto.preco if produto else request.form.get('preco', '') }}"
+>
+<br><br>
+
+<label>Estoque:</label><br>
+<input
+type="number"
+name="estoque"
+value="{{ produto.estoque if produto else request.form.get('estoque', 0) }}"
+>
+<br><br>
+
+<button type="submit">
+Salvar
+</button>
+
+<a href="{{ url_for('lista_produtos') }}">
+Voltar
+</a>
+
+</form>
+
+</body>
+</html>
