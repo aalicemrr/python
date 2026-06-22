@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Novo veículo{% endblock %}
+{% block content %}
+<h1>Novo veículo</h1>
+<form method="POST">
+    <div class="form-grupo"><label>Placa</label><input name="placa" required></div>
+    <div class="form-grupo"><label>Modelo</label><input name="modelo" required></div>
+    <div class="form-grupo"><label>Diária (R$)</label><input type="number" step="any" min="0" name="diaria" required></div>
+    <button type="submit">Salvar</button>
+</form>
+<p><a href="{{ url_for('locadora.index') }}">← Voltar</a></p>
+{% endblock %}
